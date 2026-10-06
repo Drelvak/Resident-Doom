@@ -7,7 +7,7 @@ Drelvak’s Resident Evil 1 × Doom experiment: play as Jill inside Doom, with e
 ## What you need
 
 - Doom / Ultimate Doom
-- Resident Evil 1 PC (original classic version)
+- Resident Evil 1 PC (tested using GoG version, other PC versions untested but probably work the same)
 - [GZDoom](https://zdoom.org/downloads)
 
 ## Setup
