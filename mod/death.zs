@@ -16,7 +16,7 @@ class REDeathPlayer : RESavePlayer
    p.statusOpen=false;p.boxOpen=false;p.promptKind=0;p.actionMenu=false;p.menuFadeMode=0;
    p.saveState=0;p.saveRequest=0;p.pendingPickup=null;p.StopItemView();p.UpdateFreeze();
    p.aimLock=false;p.aimTarget=null;p.NewMotion(4);p.RESound("death",CHAN_VOICE);
-   Console.Printf("REDEATH fall begin body=4 countdown=90");
+   if(CVar.FindCVar("re_debug").GetBool())Console.Printf("REDEATH fall begin body=4 countdown=90");
   }
   if(deathStage==1)
   {
@@ -37,7 +37,7 @@ class REDeathPlayer : RESavePlayer
     deathBlood.Scale=(deathBloodHalfW*2*56.0/1800/26,deathBloodHalfH*2*56.0/1800/29);
    }
    p.ApplyPose();
-   if(--deathCountdown==0){deathStage=2;deathFade=0;deathFadeType=1;Console.Printf("REDEATH death flash");}
+   if(--deathCountdown==0){deathStage=2;deathFade=0;deathFadeType=1;if(CVar.FindCVar("re_debug").GetBool())Console.Printf("REDEATH death flash");}
    return;
   }
   if(deathStage==2)
@@ -54,7 +54,7 @@ class REDeathPlayer : RESavePlayer
     deathCamera=Spawn("REMenuCamera",eye);Vector3 delta=origin+(0,0,1000*56.0/1800/Level.info.pixelstretch)-eye;
     deathCamera.Angle=atan2(delta.Y,delta.X);deathCamera.Pitch=-atan2(delta.Z,delta.XY.Length());
     TexMan.SetCameraToTexture(deathCamera,"REDEATH",2*atan(160.0/192));TexMan.SetCameraTextureAspectRatio("REDEATH",1,true);
-    Console.Printf("REDEATH original died.tim reveal");
+    if(CVar.FindCVar("re_debug").GetBool())Console.Printf("REDEATH original died.tim reveal");
    }
    return;
   }
@@ -112,7 +112,7 @@ class REDeathPlayer : RESavePlayer
   if(deathCamera){deathCamera.Destroy();deathCamera=null;}
   let p=JillPlayer(self);if(p.jointVisual)p.jointVisual.Hide();
   SetMusicVolume(Level.MusicVolume);S_ChangeMusic("",0,false);
-  Console.Printf("REDEATH return original title");
+  if(CVar.FindCVar("re_debug").GetBool())Console.Printf("REDEATH return original title");
  }
 }
 

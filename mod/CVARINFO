@@ -11,3 +11,6 @@ server bool re_death_test = false;
 
 
 server bool re_start_title = false;
+
+// Explicitly opt in to lifecycle/input diagnostics; silent in normal play.
+server bool re_debug = false;

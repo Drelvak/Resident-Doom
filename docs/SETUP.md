@@ -24,6 +24,10 @@ Setup imports only the [53 required files](../tools/required-assets.json), then 
 
 On first launch, Play checks the three input folders, runs local setup/build, and then starts the game. If `build/doom-re1.pk3` already exists, it launches immediately without inspecting RE1 files or reinstalling dependencies. The internal `setup.py` and setup wrappers are retained for rebuilding/troubleshooting, but are not required for normal use.
 
+## Updating an existing copy
+
+Extract the current release into a fresh folder and copy your three dependency folders into it. Play will build the updated game automatically. Simply overwriting source files leaves an older cached PK3 unchanged.
+
 ## If something is missing
 
 - **Missing Doom file:** place your IWAD at `dependencies/doom/doom.wad`.

@@ -158,7 +158,7 @@ class REGameplayMenuGate : ListMenu
  {
   if(!redirect){Super.Ticker();return;}
   redirect=false;Close();EventHandler.SendNetworkEvent("re_escape");
-  Console.Printf("REINPUT native MainMenu redirected to RE status");
+  if(CVar.FindCVar("re_debug").GetBool())Console.Printf("REINPUT native MainMenu redirected to RE status");
  }
  override void Drawer(){if(!redirect)Super.Drawer();}
  override bool MenuEvent(int key,bool fromcontroller){if(redirect)return true;return Super.MenuEvent(key,fromcontroller);}

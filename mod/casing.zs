@@ -31,7 +31,7 @@ class RECasing : Actor
   // autoaim_fire stores weaponIdx in animHeader[3] (header byte7).
   h[7]=gun;frame=h[4];delay=RECasingData.Frames[frame*4+1];
   int oldPhase=h[7];int branch=random(1,2);LoadPhase(branch);phase=2;h[7]=oldPhase;
-  clock33=p.clock33;lastHostTic=Level.time;Place();ShowFrame();Console.Printf("RECASE spawn weapon=%d frame=%d offset=(%d,%d,%d) branch=%d velocity=(%d,%d,%d)",p.visibleWeapon,p.animframe,int(sourceOffset.X),int(sourceOffset.Y),int(sourceOffset.Z),branch,vx,vy,vz);StepSource();
+  clock33=p.clock33;lastHostTic=Level.time;Place();ShowFrame();if(CVar.FindCVar("re_debug").GetBool())Console.Printf("RECASE spawn weapon=%d frame=%d offset=(%d,%d,%d) branch=%d velocity=(%d,%d,%d)",p.visibleWeapon,p.animframe,int(sourceOffset.X),int(sourceOffset.Y),int(sourceOffset.Z),branch,vx,vy,vz);StepSource();
  }
  void Place()
  {
@@ -58,7 +58,7 @@ class RECasing : Actor
  void StepSource()
  {
   age++;
-  if(pendingKill){Console.Printf("RECASE cleanup weapon=%d sourceTicks=%d",gun+2,age);Destroy();return;}
+  if(pendingKill){if(CVar.FindCVar("re_debug").GetBool())Console.Printf("RECASE cleanup weapon=%d sourceTicks=%d",gun+2,age);Destroy();return;}
   // Behavior8 probes horizontal RDT obstacle bounds, NOT the floor plane.
   // E1M1 has linedefs: native CheckPosition is the corresponding host probe.
   if(h[0]==8&&!CheckPosition(Pos.XY))
