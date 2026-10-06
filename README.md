@@ -27,9 +27,9 @@ Download and extract this project, then:
 Controls are the same as RE1 PC.
 **Arrows/WASD:** move and turn · **V/Shift:** run/cancel · **X:** aim · **C/Space:** interact/fire/confirm · **Escape/TAB:** inventory
 
-## Prototype limitations
+## Limitations
 
-One experimental map: E1M1. Windows gameplay is not yet tested. Original game files are required and are not included.
+One experimental map: E1M1. Windows gameplay is not yet tested, developed on Arch Linux. Original game files are required and are not included. You must provide your own legally obtained copies.
 The rest of the levels, at least the entire shareware episode, may be finished in the future. Currently a proof of concept prototype.
 
 [Setup & troubleshooting](docs/SETUP.md) · [Technical information](docs/TECHNICAL.md) · [Licenses & credits](docs/LICENSES.md) · [Contributing](CONTRIBUTING.md)
