@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-only
 """Import user-owned data and build locally. Never runs the commercial installer."""
 from pathlib import Path
-import argparse,hashlib,json,os,platform,shutil,struct,subprocess,sys,tarfile,urllib.request,venv,zipfile
+import argparse,hashlib,json,os,shutil,struct,subprocess,sys,tarfile,urllib.request,venv,zipfile
 ROOT=Path(__file__).resolve().parent
 LOCAL=ROOT/'.local'
 LOCKS=json.loads((ROOT/'tools/download-lock.json').read_text())
@@ -46,43 +46,26 @@ def dependency_source():
   shutil.copytree(src,dest,dirs_exist_ok=True)
  # Upstream's license/notices remain beside its locally downloaded source.
  print('RE1 source reference pinned at',LOCKS['decomp']['commit'],flush=True)
-def extractor():
- system='windows' if os.name=='nt' else 'linux'
- archive=download(LOCKS[system]);dest=LOCAL/'innoextract';unpack(archive,dest)
- if os.name=='nt':return dest/'innoextract.exe'
- if platform.machine().lower() not in ('x86_64','amd64','i386','i686'):raise RuntimeError('Automatic installer extraction supports x86/x86-64 Linux. Instead place extracted USA data in dependencies/re1/USA/.')
- p=dest/'innoextract-1.9-linux/innoextract';p.chmod(p.stat().st_mode|0o111);return p
-
 def re_source():
  folder=ROOT/'dependencies/re1'
  if not folder.is_dir():raise RuntimeError('Missing dependencies/re1/. Put your legally owned RE1 source there.')
  if folder.is_symlink() or not folder.resolve().is_relative_to(ROOT.resolve()):raise RuntimeError('RE1 input must be a real folder inside this project, not a link to another location')
  index=index_folder(folder);dataset=select_dataset(index,REQUIRED)
  if dataset:return 'folder',dataset
- installers=[p for p in index.values() if p.name.lower().startswith('setup_resident_evil') and p.suffix.lower()=='.exe']
- images=[p for p in index.values() if p.suffix.lower()=='.iso']
- if len(installers)+len(images)>1:raise RuntimeError('Keep one GOG installer or one ISO in dependencies/re1/, or provide one complete installed data folder.')
- if installers:return 'gog',installers[0]
- if images:return 'iso',images[0]
- raise RuntimeError('No supported classic USA RE1 data found in dependencies/re1/. Use installed/copied USA files, a GOG offline installer, or a standard ISO containing unpacked USA data. HD Remaster, packed retail installers and BIN/CUE are unsupported.')
+ missing='Data/STATUS.TIM'
+ for key in index:
+  if key.endswith('data/status.tim'):
+   prefix=key[:-len('data/status.tim')]
+   missing=next((n.removeprefix('USA/') for n in REQUIRED if prefix+n.removeprefix('USA/').casefold() not in index),'required classic PC data')
+   break
+ raise RuntimeError('Missing RE1 game file: '+missing+'. Copy the installed classic Resident Evil 1 PC game folder into dependencies/re1/, not an installer or disc image.')
 
-def import_re(source,python):
- ref=ROOT/'assets/reference';ref.mkdir(parents=True,exist_ok=True);kind,data=source
- if kind=='folder':
-  print('Importing classic installed/copied CD data from the RE1 input folder.',flush=True)
-  for name,path in data.items():
-   dest=ref/name;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(path,dest)
- elif kind=='gog':
-  print('Extracting required GOG data locally; the commercial installer is NOT executed.',flush=True)
-  cmd=[extractor(),'--extract','--output-dir',ref]
-  for name in REQUIRED:cmd+=['--include',name]
-  run(cmd+[data])
- else:
-  print('Reading standard ISO locally; no mounting or installer execution.',flush=True)
-  run([python,ROOT/'tools/import_iso.py',data,ref])
- missing=[n for n in REQUIRED if not (ref/n).is_file()]
- if missing:raise RuntimeError('Source lacks required original file: '+missing[0]+'. Provide classic USA PC game data.')
- (ROOT/'assets/extraction-manifest.json').write_text(json.dumps({'method':'user-owned '+kind+', inspection restricted to dependencies/re1/','files':[]},indent=2)+'\n')
+def import_re(source):
+ ref=ROOT/'assets/reference';ref.mkdir(parents=True,exist_ok=True);_,data=source
+ print('Importing installed Resident Evil 1 game files.',flush=True)
+ for name,path in data.items():
+  dest=ref/name;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(path,dest)
+ (ROOT/'assets/extraction-manifest.json').write_text(json.dumps({'method':'installed game files, inspection restricted to dependencies/re1/','files':[]},indent=2)+'\n')
 def validate_doom(path):
  b=path.read_bytes()
  if len(b)<12 or b[:4]!=b'IWAD':raise RuntimeError('Select a Doom 1 IWAD (DOOM.WAD), not Doom II or a mod')
@@ -117,7 +100,7 @@ def main():
  source=re_source()
  python=prepare_python(args.skip_install)
  for n in ['assets/background-reference','mod/graphics','mod/graphics/reui','mod/sprites','mod/models','mod/models/jill','mod/models/items','mod/sounds/re1','logs','saves']:(ROOT/n).mkdir(parents=True,exist_ok=True)
- dependency_source();import_re(source,python)
+ dependency_source();import_re(source)
  for name in ['convert_assets','convert_models','convert_item_views','re1_ui_assets','world_assets','audio_assets','casing_assets','pickup_glint','death_assets','build']:
   print('Generating locally:',name,flush=True);run([python,ROOT/'tools'/(name+'.py')])
  print('\nSetup complete. Run play.bat (Windows) or ./play.sh (Linux).\nKeep generated game assets private; do not upload the generated PK3.',flush=True)

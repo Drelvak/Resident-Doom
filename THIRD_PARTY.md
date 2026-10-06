@@ -14,10 +14,10 @@ GPLv3 applies to these code adaptations. The downloaded upstream source preserve
 https://github.com/ZDoom/gzdoom
 GPLv3-or-later for the runtime, plus its third-party component licenses. No engine binary or copied engine source is distributed here. The ZScript adapters invoke GZDoom public APIs and extend native classes. GPL licensing of this port is driven by its RE1-source adaptations; using the runtime alone is not asserted to impose GPL on all mod assets.
 
-## innoextract — optional local download
+## innoextract — historical optional local download
 
 https://constexpr.org/innoextract/
-Daniel Scharrer and contributors; zlib/libpng license. Setup downloads official 1.9 packages with SHA-256 checks. Their accompanying license/library notices stay in `.local/innoextract/`. Neither binary nor library code is included in the release source archive.
+Daniel Scharrer and contributors; zlib/libpng license. Earlier setup revisions downloaded official 1.9 packages with SHA-256 checks; current installed-files-only setup does not download or use the extractor. Their accompanying license/library notices stay in `.local/innoextract/`. Neither binary nor library code is included in the release source archive.
 
 ## NumPy and Pillow — local Python dependencies
 
@@ -35,7 +35,7 @@ https://github.com/ZDoom/gzdoom/blob/g4.14.2/src/d_main.cpp#L3528-L3530
 
 This release does not modify a shareware IWAD, spoof its identity or bypass that restriction. The release intentionally requires the user's registered Doom IWAD, supplied at dependencies/doom/doom.wad. Shareware was evaluated and is not part of this release.
 
-## pycdlib — local ISO reader
+## pycdlib — historical ISO reader
 
 https://github.com/clalancette/pycdlib
-Chris Lalancette and contributors; LGPLv2.1 (see upstream COPYING and installed package notices). Used as a separately installed Python dependency to read standard ISO9660/Joliet images locally, not bundled in the source release. No proprietary image or disc content is distributed.
+Chris Lalancette and contributors; LGPLv2.1 (see upstream COPYING and installed package notices). Earlier revisions used it as a separately installed Python dependency. Current setup does not install or use it. No proprietary image or disc content is distributed.

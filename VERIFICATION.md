@@ -8,3 +8,5 @@
 - Linux runtime: the independent generated package passed GZDoom 4.14.2 script compilation, and the release launcher reached E1M1 in an offscreen smoke check. The Doom IWAD remained byte-identical. No full playthrough/visual/audio regression was performed for release preparation.
 - Windows: Python source compiles and launcher/path handling was inspected; neither complete Windows setup nor native Windows gameplay was tested.
 - Publication: only source/text, instructions, notices and filename/hash-based dependency metadata are intended for Git. The generated PK3 and all proprietary/converted data are excluded.
+
+Current simplification: setup accepts installed files only. Earlier GOG/ISO checks above are historical evidence, not supported current input paths. Those formats and their extra dependencies were removed from the normal flow.
