@@ -18,9 +18,11 @@ Download and extract this project, then:
 2. **Install Resident Evil 1 normally, then drag the installed game files into `dependencies/re1/`.**
 3. Put the complete GZDoom download in **`dependencies/gzdoom/`**.
 
-**Windows:** Double-click `setup.bat`, then `play.bat`.
+**Windows:** Double-click `play.bat`.
 
-**Linux:** Run `sh setup.sh`, then `sh play.sh`.
+**Linux:** Run `sh play.sh`.
+
+The first launch prepares the game automatically. Later launches start immediately.
 
 ## Controls
 

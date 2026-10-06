@@ -4,14 +4,16 @@ cd /d "%~dp0"
 where py >nul 2>nul
 if errorlevel 1 goto python
 py -3 play.py %*
-if errorlevel 1 pause
-exit /b
+goto result
 :python
 where python >nul 2>nul
 if errorlevel 1 goto missing
 python play.py %*
-if errorlevel 1 pause
-exit /b
+:result
+set "play_result=%errorlevel%"
+if not "%play_result%"=="0" pause
+exit /b %play_result%
 :missing
-echo Python 3.11+ is required. Install Python from python.org first.
+echo Python 3.12+ is required. Install Python from python.org first.
 pause
+exit /b 1

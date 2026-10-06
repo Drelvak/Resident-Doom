@@ -10,3 +10,5 @@
 - Publication: only source/text, instructions, notices and filename/hash-based dependency metadata are intended for Git. The generated PK3 and all proprietary/converted data are excluded.
 
 Current simplification: setup accepts installed files only. Earlier GOG/ISO checks above are historical evidence, not supported current input paths. Those formats and their extra dependencies were removed from the normal flow.
+
+One-step Play flow: tested on Linux using a separate disposable source copy and real owned-data conversion/build, with a test runtime marker for launch ordering. First Play built the PK3 and launched once; repeat Play skipped setup even after the fixture's RE1 inputs were removed; missing first-time inputs stopped with a clear error and no runtime launch. Native Windows execution remains untested.

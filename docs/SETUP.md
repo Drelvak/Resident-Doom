@@ -18,9 +18,11 @@ Setup imports only the [53 required files](../tools/required-assets.json), then 
 
 ## Run
 
-**Windows:** double-click `setup.bat`; when it says **Setup complete**, double-click `play.bat`.
+**Windows:** double-click `play.bat`.
 
-**Linux:** open a terminal in the project folder, run `sh setup.sh`, then `sh play.sh`.
+**Linux:** open a terminal in the project folder and run `sh play.sh`.
+
+On first launch, Play checks the three input folders, runs local setup/build, and then starts the game. If `build/doom-re1.pk3` already exists, it launches immediately without inspecting RE1 files or reinstalling dependencies. The internal `setup.py` and setup wrappers are retained for rebuilding/troubleshooting, but are not required for normal use.
 
 ## If something is missing
 
@@ -28,8 +30,8 @@ Setup imports only the [53 required files](../tools/required-assets.json), then 
 - **Missing GZDoom:** put the executable and the rest of its distribution inside `dependencies/gzdoom/`, rather than an extra enclosing folder.
 - **Missing RE1 file:** copy the entire installed classic PC game folder into `dependencies/re1/`, keeping its subfolders. The error names a required file. An installer, ISO or HD Remaster does not contain the supported installed layout.
 - **Multiple complete RE1 datasets:** keep just one installed copy in the input folder.
-- **Python missing:** install Python 3.12+ with pip/venv support, then rerun setup.
-- **Download or dependency error:** check your connection and rerun setup. Local generated files are ignored by Git.
+- **Python missing:** install Python 3.12+ with pip/venv support, then run Play again.
+- **Download or dependency error:** check your connection and run Play again. Local generated files are ignored by Git.
 - **Game launch error:** see `logs/launch.log`. Config, logs and saves stay inside the project.
 
 Windows launchers have been reviewed but native Windows setup/gameplay has not been tested. Do not redistribute the generated PK3 or imported game data. See [technical information](TECHNICAL.md) and [licenses/credits](LICENSES.md).

@@ -103,7 +103,7 @@ def main():
  dependency_source();import_re(source)
  for name in ['convert_assets','convert_models','convert_item_views','re1_ui_assets','world_assets','audio_assets','casing_assets','pickup_glint','death_assets','build']:
   print('Generating locally:',name,flush=True);run([python,ROOT/'tools'/(name+'.py')])
- print('\nSetup complete. Run play.bat (Windows) or ./play.sh (Linux).\nKeep generated game assets private; do not upload the generated PK3.',flush=True)
+ print('\nSetup complete.\nKeep generated game assets private; do not upload the generated PK3.',flush=True)
 if __name__=='__main__':
  try:main()
  except (Exception,KeyboardInterrupt) as e:print('\nSetup failed:',e,file=sys.stderr);sys.exit(1)
