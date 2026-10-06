@@ -1,6 +1,6 @@
 # Resident Doom
 
-Drelvak’s Resident Evil 1 × Doom experiment: play E1M1 as Jill with fixed cameras, tank controls and RE inventory.
+Drelvak’s Resident Evil 1 × Doom experiment: play as Jill inside Doom, with exact mechanics ported over directly from source code. 
 
 **[Watch the original video](https://youtu.be/yGkjS0gFxnY)**
 
