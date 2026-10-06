@@ -27,6 +27,7 @@ The first launch prepares the game automatically. Later launches start immediate
 ## Controls
 
 Controls are the same as RE1 PC.
+
 **Arrows/WASD:** move and turn · **V/Shift:** run/cancel · **X:** aim · **C/Space:** interact/fire/confirm · **Escape/TAB:** inventory
 
 ## Limitations
