@@ -1,0 +1,16 @@
+ListMenu "SaveGameMenu"
+{
+ Class "RETypewriterOnlyMenu"
+}
+
+ListMenu "MainMenu"
+{
+ Class "REGameplayMenuGate"
+ StaticPatch 94, 2, "M_DOOM"
+ Position 97, 72
+ PatchItem "M_NGAME", "n", "PlayerclassMenu"
+ PatchItem "M_OPTION", "o", "OptionsMenu"
+ PatchItem "M_LOADG", "l", "LoadGameMenu"
+ PatchItem "M_SAVEG", "s", "SaveGameMenu"
+ PatchItem "M_QUITG", "q", "QuitMenu"
+}

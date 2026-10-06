@@ -1,0 +1,56 @@
+re1/cursor sounds/re1/cursor.wav
+re1/cancel sounds/re1/cancel.wav
+re1/decide sounds/re1/decide.wav
+re1/handgun sounds/re1/handgun.wav
+re1/reload sounds/re1/reload.wav
+re1/magazine sounds/re1/magazine.wav
+re1/shotgun sounds/re1/shotgun.wav
+re1/pump sounds/re1/pump.wav
+re1/box-open sounds/re1/box-open.wav
+re1/box-scroll sounds/re1/box-scroll.wav
+re1/step-a sounds/re1/step-a.wav
+re1/step-b sounds/re1/step-b.wav
+re1/type-a sounds/re1/type-a.wav
+re1/type-b sounds/re1/type-b.wav
+$volume re1/step-a 0.6
+$volume re1/step-b 0.6
+
+// Suppress the native Escape menu entry/closure; RE status plays its own sample.
+$volume menu/activate 0
+$volume menu/clear 0
+$volume menu/backup 0
+$playersound re1jill male *pain100 dsempty
+$playersound re1jill male *pain75 dsempty
+$playersound re1jill male *pain50 dsempty
+$playersound re1jill male *pain25 dsempty
+$playersound re1jill male *grunt dsempty
+$playersound re1jill male *land dsempty
+$playersound re1jill male *death dsempty
+$playersound re1jill male *xdeath dsempty
+$playersound re1jill female *pain100 dsempty
+$playersound re1jill female *pain75 dsempty
+$playersound re1jill female *pain50 dsempty
+$playersound re1jill female *pain25 dsempty
+$playersound re1jill female *grunt dsempty
+$playersound re1jill female *land dsempty
+$playersound re1jill female *death dsempty
+$playersound re1jill female *xdeath dsempty
+$playersound re1jill other *pain100 dsempty
+$playersound re1jill other *pain75 dsempty
+$playersound re1jill other *pain50 dsempty
+$playersound re1jill other *pain25 dsempty
+$playersound re1jill other *grunt dsempty
+$playersound re1jill other *land dsempty
+$playersound re1jill other *death dsempty
+$playersound re1jill other *xdeath dsempty
+re1/case-land sounds/re1/case-land.wav
+re1/shell-land sounds/re1/shell-land.wav
+re1/shell-reload sounds/re1/shell-reload.wav
+re1/death sounds/re1/death.wav
+re1/body-thud sounds/re1/body-thud.wav
+re1/title sounds/re1/title.wav
+
+// Native UseLines wall/failure sample must not leak Doomguy voice.
+$playersound re1jill male *usefail dsempty
+$playersound re1jill female *usefail dsempty
+$playersound re1jill other *usefail dsempty

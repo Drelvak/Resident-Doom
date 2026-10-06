@@ -1,0 +1,18 @@
+{
+  "linux": {
+    "url": "https://constexpr.org/innoextract/files/innoextract-1.9-linux.tar.xz",
+    "sha256": "008efe5011476ccc4aae17c3e22038b5a1bc5c7aad2b9d4d869537bf3874d21f",
+    "filename": "innoextract-1.9-linux.tar.xz"
+  },
+  "windows": {
+    "url": "https://constexpr.org/innoextract/files/innoextract-1.9-windows.zip",
+    "sha256": "6989342c9b026a00a72a38f23b62a8e6a22cc5de69805cf47d68ac2fec993065",
+    "filename": "innoextract-1.9-windows.zip"
+  },
+  "decomp": {
+    "url": "https://codeload.github.com/ecruells/resident-evil-pc-decomp/zip/15004914527567a2b9cecf34997abe8c252bcbf9",
+    "sha256": "69652eeb064a3ad2a6b347f928915a77d351656c9a9af81ccc566ff001945b72",
+    "filename": "decomp.zip",
+    "commit": "15004914527567a2b9cecf34997abe8c252bcbf9"
+  }
+}

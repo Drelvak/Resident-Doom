@@ -1,0 +1,13 @@
+server bool re_test = false;
+server bool re_joint_render = true;
+
+user bool re_developer_menu = false;
+
+user bool re_debug_audio = false;
+
+server bool re_case_trace = false;
+
+server bool re_death_test = false;
+
+
+server bool re_start_title = false;

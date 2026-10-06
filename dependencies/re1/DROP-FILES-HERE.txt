@@ -1,0 +1,1 @@
+Put ONE legally owned classic USA RE1 PC source here: installed/copied USA game data (preferred), copied CD contents with unpacked USA data, a GOG offline installer with its companion .bin files, or a standard ISO containing that data. Only this folder is inspected; no store/system scanning. HD Remaster, raw BIN/CUE and packed retail installers are unsupported. See README.

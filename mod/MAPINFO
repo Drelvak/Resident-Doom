@@ -1,0 +1,16 @@
+GameInfo
+{
+ PlayerClasses = "JillPlayer"
+ AddEventHandlers = "REHandler"
+}
+map E1M1 "Hangar: Survival Test"
+{
+ lightmode = 2
+ levelnum = 1
+ next = "E1M1"
+ music = "REMANS"
+ sky1 = "SKY1"
+ nojump
+ nocrouch
+ nofreelook
+}

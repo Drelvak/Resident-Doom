@@ -1,0 +1,1 @@
+Unpack your GZDoom distribution here, including its support files. Windows: gzdoom.exe; Linux: gzdoom. No runtime binary is included.

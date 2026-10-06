@@ -1,0 +1,20 @@
+version "4.14"
+#include "animations.zs"
+#include "poses.zs"
+#include "joint_data.zs"
+#include "joint_models.zs"
+#include "joint_runtime.zs"
+#include "e1m1.zs"
+#include "items.zs"
+#include "messages.zs"
+#include "ui_data.zs"
+#include "item_views.zs"
+#include "save_loop.zs"
+#include "death.zs"
+#include "main.zs"
+#include "monsters.zs"
+
+
+
+#include "casing_data.zs"
+#include "casing.zs"
