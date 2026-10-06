@@ -1,6 +1,6 @@
 # Resident Doom
 
-Drelvak’s Resident Evil 1 × Doom experiment: play as Jill inside Doom, with exact mechanics ported over directly from source code. 
+Drelvak’s Resident Evil 1 × Doom experiment: play as Jill inside Doom, with exact mechanics ported over directly from source code taken from [RE1 Decomp](https://github.com/ecruells/resident-evil-pc-decomp)
 
 **[Watch the original video](https://youtu.be/yGkjS0gFxnY)**
 
