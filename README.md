@@ -9,7 +9,8 @@ Drelvak’s Resident Evil 1 × Doom experiment: play as Jill inside Doom, with e
 
 
 
-https://github.com/user-attachments/assets/f2142ec6-e072-4466-b35b-dccad741f090
+<img width="800" height="450" alt="redoom_800_30fps" src="https://github.com/user-attachments/assets/414e96f8-f0b1-441c-b19c-f22dcfa19cf7" />
+
 
 
 
